@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,24 +8,45 @@
     <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="container">
         <!--- To do title pluse the create button --->
-    <div class="header">
-        
-        <div class="todo-title">
-            Your To Do 
+        <div class="header">
+
+            <div class="todo-title">
+                Your To Do
+            </div>
+            <div class="add-todo">
+                &#43;
+            </div>
         </div>
-        <div class="add-todo">
-            &#43;
+        <!-- Search Box -->
+        <div class="search">
+            <textarea rows="3" class="search-input" placeholder="Search by nam or by description..."></textarea>
+        </div>
+
+        <div class="todo-box">
+            <div class="todo-box-left">
+                <div class="todo-top">
+                    <h1>To Do Title</h1>
+                    <h1>5 &#9733</h1>
+                </div>
+                <div class="description">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem!</p>
+                </div>
+            </div>
+            <div class="todo-box-right">
+                <div class="done"></div>
+                <div class="edit"></div>
+                <div class="delete"></div>
+            </div>
+
+
         </div>
     </div>
-    <!-- Search Box -->
-    <div class="search">
-        <textarea rows="3"class="search-input" placeholder="Search by nam or by description..."></textarea>
-    </div>
-    </div>
-    
-   <script href="scripts.js"></script> 
+
+    <script href="scripts.js"></script>
 </body>
+
 </html>
