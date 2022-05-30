@@ -18,7 +18,7 @@
             <div class="todo-title">
                 Your To Do
             </div>
-            <div class="add-todo bg">
+            <div class="add-todo bg" id="add-todo">
                 &#43;
             </div>
         </div>
@@ -34,7 +34,10 @@
                     <h1>5 &#9733</h1>
                 </div>
                 <div class="description">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem! Lorem ipsum dolor sit
+                        amet consectetur adipisicing elit. Quisquam, quidem! Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Quisquam, quidem! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quisquam, quidem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem!</p>
                 </div>
             </div>
             <div class="todo-box-right">
@@ -52,35 +55,40 @@
                     <div>
                         <h1 class="todo-title-input">To Do Title</h1>
                     </div>
-                <div>
-                    <textarea cols="30" rows="2" class="input-title" placeholder="Insert Title here..."></textarea>
+                    <div>
+                        <textarea cols="30" rows="2" class="input-title" placeholder="Insert Title here..."></textarea>
+                    </div>
+                    <div class="todo-points">
+                        <h1 class>Points</h1>
+                    </div>
+                    <div>
+                        <select class="points bg">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="todo-points">
-                    <h1 class>Points</h1>
+                <div class="second row">
+                    <div>
+                        <textarea cols="30" rows="2" class="input-description"
+                            placeholder="Insert Description here..."></textarea>
+                    </div>
                 </div>
-                <div>
-                    <select class="points bg">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
+                <div class="pop-up-btns">
+                    <div class="cancel bg"> Cancel </div>
+                <div class="create-btn bg">Create</div>
                 </div>
+                
             </div>
-            <div class="second row">
-                <div>
-                    <textarea cols="30" rows="2" class="input-description" placeholder="Insert Description here..."></textarea>
-                </div>
-            </div>
-            <div class="create-btn bg">Create</div>
-            </div>
-            
-            
+
+
         </div>
     </div>
-
-    <script href="scripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>

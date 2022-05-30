@@ -187,6 +187,13 @@ margin-right: 20px;
     padding: 5px;
     
 }
-.create-btn{
-    align-self: flex-end;
+.create-btn, .cancel{
+    /* align-self: flex-end; */
+
+}
+.pop-up-btns{
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-left: 400px;
 }
