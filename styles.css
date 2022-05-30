@@ -1,18 +1,20 @@
-*{
+* {
     margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 /* Container Flex */
-.container{
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 50px ;
+    margin: 50px;
 }
+
 /* Header Flex */
-.header{
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,8 +25,10 @@
     border-radius: 5px;
     color: #F2C261;
 }
+
 /* margin to inner header */
-.todo-title, .add-todo{
+.todo-title,
+.add-todo {
     margin-left: 100px;
     margin-right: 100px;
     font-size: 30px;
@@ -32,21 +36,22 @@
 }
 
 /* All buttons */
-.bg{
+.bg {
     background-color: #37B29E;
-    padding: 10px 26px; 
+    padding: 10px 26px;
     border: 2px solid white;
-    border-radius: 10px; 
+    border-radius: 10px;
     cursor: pointer;
     transition: padding 0.5s;
 }
-.bg:hover{
+
+.bg:hover {
     padding: 16px 32px;
-    
+
 }
 
 /* Search Box */
-.search-input{
+.search-input {
     width: 1300px;
     height: 50px;
     border: 2px solid #F2C261;
@@ -57,25 +62,27 @@
     color: #F2C261;
     margin-top: 20px;
 }
+
 /* To do box */
-.todo-box{
+.todo-box {
     margin-top: 30px;
     display: flex;
     width: 100%;
     justify-content: space-between;
     background-color: #1C1A24;
     color: white;
-    border: 2px solid #F2C261 ;
+    border: 2px solid #F2C261;
     border-radius: 10px;
 }
 
-.todo-box-left{
+.todo-box-left {
     display: flex;
     flex-direction: column;
     width: 80%;
     height: 100%;
 }
-.todo-box-right{
+
+.todo-box-right {
     display: flex;
     flex-direction: column;
     width: 20%;
@@ -83,31 +90,36 @@
     border-left: 2px solid #F2C261;
     align-items: center;
 }
-.todo-box-right div{
+
+.todo-box-right div {
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 32px;
     color: #F2C261;
     background-color: #37B29E;
 }
-.todo-top{
-    display:flex;
+
+.todo-top {
+    display: flex;
     justify-content: space-around;
     margin-top: 16px;
     flex-basis: 30%;
-    border-bottom:  2px solid #F2C261;
+    border-bottom: 2px solid #F2C261;
 }
-.description{
+
+.description {
     flex-basis: 70%;
-    margin:50px ;
+    margin: 50px;
     height: 100%;
 }
-.description > p {
-    
+
+.description>p {
+
     font-size: 20px;
     font-weight: lighter;
 }
-.done{
+
+.done {
     background-color: gray;
     color: black;
 }
@@ -115,16 +127,66 @@
 
 
 
-/* popup signup form */
-.review_pop_up {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+/* popup create a todo */
+.create-pop-up {
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.create-todo {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 30px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid #F2C261;
+    border-radius: 10px;
+    background-color: #1C1A24;
+    color: white;
+}
+
+.first-row-create {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #F2C261;
+}
+
+
+.input-description {
+    width: 600px;
+    height: 200px;
+    border: 2px solid #F2C261;
+    border-radius: 10px;
+}
+
+.input-title,.points {
+margin-right: 20px;
+}
+.input-title::placeholder, .input-description::placeholder{
+    padding: 5px;
+}
+.input-description, .input-title{
+    padding: 5px;
+    
+}
+.create-btn{
+    align-self: flex-end;
+}
