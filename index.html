@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
-    <title>Document</title>
+    <title>ToDo</title>
 </head>
 
 <body>
@@ -30,23 +30,24 @@
         <div class="todo-box">
             <div class="todo-box-left">
                 <div class="todo-top">
-                    <h1>To Do Title</h1>
-                    <h1>5 &#9733</h1>
+                    <h1 id="title">To Do Title</h1>
+                    <h1 id="points">5 &#9733</h1>
                 </div>
                 <div class="description">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem! Lorem ipsum dolor sit
+                    <p id="description-para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem! Lorem ipsum dolor sit
                         amet consectetur adipisicing elit. Quisquam, quidem! Lorem ipsum dolor sit amet consectetur
                         adipisicing elit. Quisquam, quidem! Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Quisquam, quidem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem!</p>
                 </div>
             </div>
             <div class="todo-box-right">
-                <div class="done bg"><i class="fa-solid fa-check"></i></div>
-                <div class="edit bg"><i class="fa-solid fa-pen"></i></div>
-                <div class="delete bg"><i class="fa-solid fa-trash"></i></div>
+                <div class="done bg" id="done"><i class="fa-solid fa-check"></i></div>
+                <div class="edit bg" id="edit"><i class="fa-solid fa-pen"></i></div>
+                <div class="delete bg" id="delete"><i class="fa-solid fa-trash"></i></div>
             </div>
 
-
+            
+            <!-- ToDo Popup to Create a New one -->
         </div>
         <div class="create-pop-up" id="pop-up">
             <div class="create-todo">
@@ -62,7 +63,7 @@
                         <h1 class>Points</h1>
                     </div>
                     <div>
-                        <select class="points bg">
+                        <select class="points bg" id="points-value">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -78,8 +79,8 @@
                     </div>
                 </div>
                 <div class="pop-up-btns">
-                    <div class="cancel bg"> Cancel </div>
-                <div class="create-btn bg">Create</div>
+                    <div class="cancel bg" id="cancel"> Cancel </div>
+                <div class="create-btn bg" id="create-popup-btn">Create</div>
                 </div>
                 
             </div>
