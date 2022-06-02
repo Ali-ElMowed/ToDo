@@ -10,7 +10,8 @@ let points_value = document.getElementById("points-value");
 let options = document.getElementsByClassName("options");
 let create_popup = document.getElementById("create-popup");
 let todo_list_container = document.getElementById("todo-list-container");
-let todo_box=document.getElementsByClassName("todo-box");
+let todo_box = document.getElementsByClassName("todo-box");
+//let create_at_div = getElementById("created-at");
 
 
 let update = false;
@@ -35,13 +36,17 @@ $(cancel).click(function () {
 });
 
 $(create_popup).click(function () {
+    let now=new Date(Date.now());
+    var today = new Date();
+    var time = today.getHours() + ":" + today.getMinutes();
     // Creatin an object to store the todo data
     if (titile_popup.value != '' && /*description_popup.value != '' &&*/ points_value.value != '') {
         if (update == false) {
             let todo_object = {
                 title: $(titile_popup).val(),
                 points: $('#points-value').val(),
-                description: $(description_popup).val()
+                description: $(description_popup).val(),
+                created_at: time
             }
             todo_data.push(todo_object);
             localStorage.setItem('todos', JSON.stringify(todo_data));
@@ -61,7 +66,7 @@ $(create_popup).click(function () {
         }
         clearValues();
         displayTodos();
-
+        location.reload();
     }
     else {
         alert("Please fill all the fields");
@@ -97,6 +102,7 @@ function displayTodos() {
             <div class="done bg" id="done" onclick="isDone(${i})"><i class="fa-solid fa-check"></i></div>
             <div class="edit bg" id="edit" onclick="editToDo(${i})"><i class="fa-solid fa-pen"></i></div>
             <div class="delete bg" id="delete" onclick="deleteToDo(${i})" ><i class="fa-solid fa-trash"></i></div>
+            <div class="created-at time" id="created-at">${todo_data[i].created_at}</div>
         </div>
     </div>
         `;
@@ -132,6 +138,6 @@ function editToDo(id) {
 
 }
 
-function isDone(id){
+function isDone(id) {
     todo_box[id].classList.toggle("is-done");
 }
