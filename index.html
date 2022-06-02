@@ -24,65 +24,50 @@
         </div>
         <!-- Search Box -->
         <div class="search">
-            <textarea rows="3" class="search-input" placeholder="Search by nam or by description..."></textarea>
+            <textarea rows="3" class="search-input" placeholder="Search by name or by description..."></textarea>
         </div>
-        <!-- To do box  -->
-        <div class="todo-box">
-            <div class="todo-box-left">
-                <div class="todo-top">
-                    <h1 id="title">To Do Title</h1>
-                    <h1 id="points">5 &#9733</h1>
-                </div>
-                <div class="description">
-                    <p id="description-para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem! Lorem ipsum dolor sit
-                        amet consectetur adipisicing elit. Quisquam, quidem! Lorem ipsum dolor sit amet consectetur
-                        adipisicing elit. Quisquam, quidem! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Quisquam, quidem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem!</p>
-                </div>
-            </div>
-            <div class="todo-box-right">
-                <div class="done bg" id="done"><i class="fa-solid fa-check"></i></div>
-                <div class="edit bg" id="edit"><i class="fa-solid fa-pen"></i></div>
-                <div class="delete bg" id="delete"><i class="fa-solid fa-trash"></i></div>
-            </div>
-
+        <!-- To do list -->
+        <div id="todo-list-container">
             
-            <!-- ToDo Popup to Create a New one -->
+
         </div>
+        <!-- ToDo Popup to Create a New one -->
+
         <div class="create-pop-up" id="pop-up">
             <div class="create-todo">
 
                 <div class="first-row-create">
                     <div>
-                        <h1 class="todo-title-input">To Do Title</h1>
+                        <h1 class="todo-title-input">Task</h1>
                     </div>
                     <div>
-                        <textarea cols="30" rows="2" class="input-title" placeholder="Insert Title here..."></textarea>
+                        <textarea cols="30" rows="2" class="input-title" placeholder="Insert Title here..."
+                            id="title-popup"></textarea>
                     </div>
                     <div class="todo-points">
-                        <h1 class>Points</h1>
+                        <h1 class>Priority</h1>
                     </div>
                     <div>
                         <select class="points bg" id="points-value">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            <option value="Unknown" class="options">Unknown</option>
+                            <option value="Low Priority" class="options">Low Priority</option>
+                            <option value="Neutral" class="options">Neutral</option>
+                            <option value="High Priority" class="options">High Priority</option>
+                            <option value="Critical " class="options">Critical</option>
                         </select>
                     </div>
                 </div>
                 <div class="second row">
                     <div>
-                        <textarea cols="30" rows="2" class="input-description"
-                            placeholder="Insert Description here..."></textarea>
+                        <textarea cols="30" rows="2" class="input-description" placeholder="Insert Description here..."
+                            id="description-popup"></textarea>
                     </div>
                 </div>
                 <div class="pop-up-btns">
                     <div class="cancel bg" id="cancel"> Cancel </div>
-                <div class="create-btn bg" id="create-popup-btn">Create</div>
+                    <div class="create-btn bg" id="create-popup">Create</div>
                 </div>
-                
+
             </div>
 
 
