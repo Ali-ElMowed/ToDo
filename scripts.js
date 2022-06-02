@@ -11,6 +11,8 @@ let options = document.getElementsByClassName("options");
 let create_popup = document.getElementById("create-popup");
 let todo_list_container = document.getElementById("todo-list-container");
 let todo_box = document.getElementsByClassName("todo-box");
+let search_input = document.getElementById("search-input");
+let search_btn = document.getElementById("search-btn");
 //let create_at_div = getElementById("created-at");
 
 
@@ -36,7 +38,7 @@ $(cancel).click(function () {
 });
 
 $(create_popup).click(function () {
-    let now=new Date(Date.now());
+    let now = new Date(Date.now());
     var today = new Date();
     var time = today.getHours() + ":" + today.getMinutes();
     // Creatin an object to store the todo data
@@ -89,21 +91,21 @@ function displayTodos() {
     for (let i = 0; i < todo_data.length; i++) {
         todo = `
         <div class="todo-box">
-        <div class="todo-box-left">
-            <div class="todo-top">
-                <h1 id="title">${todo_data[i].title}</h1>
-                <h1 id="points">${todo_data[i].points} &#9733</h1>
+            <div class="todo-box-left">
+                <div class="todo-top">
+                    <h1 id="title">${todo_data[i].title}</h1>
+                    <h1 id="points">${todo_data[i].points} &#9733</h1>
+                </div>
+                <div class="description">
+                    <p id="description-para">${todo_data[i].description}</p>
+                </div>
             </div>
-            <div class="description">
-                <p id="description-para">${todo_data[i].description}</p>
+            <div class="todo-box-right">
+                <div class="done bg" id="done" onclick="isDone(${i})"><i class="fa-solid fa-check"></i></div>
+                <div class="edit bg" id="edit" onclick="editToDo(${i})"><i class="fa-solid fa-pen"></i></div>
+                <div class="delete bg" id="delete" onclick="deleteToDo(${i})" ><i class="fa-solid fa-trash"></i></div>
+                <div class="created-at" id="created-at">Created at ${todo_data[i].created_at}</div>
             </div>
-        </div>
-        <div class="todo-box-right">
-            <div class="done bg" id="done" onclick="isDone(${i})"><i class="fa-solid fa-check"></i></div>
-            <div class="edit bg" id="edit" onclick="editToDo(${i})"><i class="fa-solid fa-pen"></i></div>
-            <div class="delete bg" id="delete" onclick="deleteToDo(${i})" ><i class="fa-solid fa-trash"></i></div>
-            <div class="created-at" id="created-at">Created at ${todo_data[i].created_at}</div>
-        </div>
     </div>
         `;
         todo_list_container.innerHTML += todo;
@@ -130,10 +132,6 @@ function editToDo(id) {
     points_value.value = todo_data[id].points;
     create_popup.innerHTML = "Update";
     tmp = id;
-    scroll({
-        top: 0,
-        behavior: 'smooth',
-    });
     update = true;
 
 }
@@ -142,31 +140,101 @@ function isDone(id) {
     todo_box[id].classList.toggle("is-done");
 }
 
-function searchToDo(value){
-    let todo='';
-    for(let i=0; todo_data.length;i++){
-        if(todo_data[i].title.includes(value) || todo_data[i].description.includes(value)){
-            todo=`
+$(search_input).keyup(function () {
+    let search_value = $(search_input).val();
+    let search_result = '';
+    for (let i = 0; i < todo_data.length; i++) {
+        if (todo_data[i].title.includes(search_value) || todo_data[i].description.includes(search_value)) {
+            search_result = `
             <div class="todo-box">
             <div class="todo-box-left">
                 <div class="todo-top">
                     <h1 id="title">${todo_data[i].title}</h1>
                     <h1 id="points">${todo_data[i].points} &#9733</h1>
-                </div>
-                <div class="description">
-                    <p id="description-para">${todo_data[i].description}</p>
-                </div>
-            </div>
-            <div class="todo-box-right">
-                <div class="done bg" id="done" onclick="isDone(${i})"><i class="fa-solid fa-check"></i></div>
-                <div class="edit bg" id="edit" onclick="editToDo(${i})"><i class="fa-solid fa-pen"></i></div>
-                <div class="delete bg" id="delete" onclick="deleteToDo(${i})" ><i class="fa-solid fa-trash"></i></div>
-                <div class="created-at" id="created-at">Created at ${todo_data[i].created_at}</div>
-            </div>
-        </div>
-            `
+                    </div>
+                    <div class="description">
+                        <p id="description-para">${todo_data[i].description}</p>
+                        </div>
+                        </div>
+                        <div class="todo-box-right">
+                            <div class="done bg" id="done" onclick="isDone(${i})"><i class="fa-solid fa-check"></i></div>
+                            <div class="edit bg" id="edit" onclick="editToDo(${i})"><i class="fa-solid fa-pen"></i></div>
+                            <div class="delete bg" id="delete" onclick="deleteToDo(${i})" ><i class="fa-solid fa-trash"></i></div>
+                            <div class="created-at" id="created-at">Created at ${todo_data[i].created_at}</div>
+                            </div>
+                            </div>
+                            `;
+            todo_list_container.innerHTML += search_result;
+            
         }
-        todo_list_container.innerHTML+=todo;
-    }
 
+    }
 }
+);
+
+
+
+
+// $(search_btn).click(function searchToDo() {
+//     console.log("search");
+//     for(todo of todo_data){
+//         if(todo.title.toLowerCase().includes($(search_input).val().toLowerCase()) || todo.description.toLowerCase().includes($(search_input).val())){
+//             let search_result = `
+//             <div class="todo-box">
+//             <div class="todo-box-left">
+//                 <div class="todo-top">
+//                     <h1 id="title">${todo.title}</h1>
+//                     <h1 id="points">${todo.points} &#9733</h1>
+//                 </div>
+//                 <div class="description">
+//                     <p id="description-para">${todo.description}</p>
+//                 </div>
+//             </div>
+//             <div class="todo-box-right">
+//                 <div class="done bg" id="done" onclick="isDone(${i})"><i class="fa-solid fa-check"></i></div>
+//                 <div class="edit bg" id="edit" onclick="editToDo(${i})"><i class="fa-solid fa-pen"></i></div>
+//                 <div class="delete bg" id="delete" onclick="deleteToDo(${i})" ><i class="fa-solid fa-trash"></i></div>`;
+//             todo_list_container.innerHTML = search_result;
+//         }
+//     }
+// });
+
+
+
+
+    
+    // let todo = '';
+    // for (let i = 0; todo_data.length; i++) {
+    //     if (todo_data[i].title.includes("a") || todo_data[i].description.includes("a")) {
+    //         todo = `
+    //         <div class="todo-box">
+    //         <div class="todo-box-left">
+    //             <div class="todo-top">
+    //                 <h1 id="title">${todo_data[i].title}</h1>
+    //                 <h1 id="points">${todo_data[i].points} &#9733</h1>
+    //             </div>
+    //             <div class="description">
+    //                 <p id="description-para">${todo_data[i].description}</p>
+    //             </div>
+    //         </div>
+    //         <div class="todo-box-right">
+    //             <div class="done bg" id="done" onclick="isDone(${i})"><i class="fa-solid fa-check"></i></div>
+    //             <div class="edit bg" id="edit" onclick="editToDo(${i})"><i class="fa-solid fa-pen"></i></div>
+    //             <div class="delete bg" id="delete" onclick="deleteToDo(${i})" ><i class="fa-solid fa-trash"></i></div>
+    //             <div class="created-at" id="created-at">Created at ${todo_data[i].created_at}</div>
+    //         </div>
+    //     </div>
+    //         `
+    //     }
+    //     todo_list_container.innerHTML = todo;
+    // }
+
+
+
+
+function sortByPoints(){
+$(todo_list_container).text("");
+    todo_data.sort((firstToDo,seconToDo)=> firstToDo.points - seconToDo.points);
+    displayTodos();
+}
+
