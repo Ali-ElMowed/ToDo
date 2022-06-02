@@ -141,3 +141,32 @@ function editToDo(id) {
 function isDone(id) {
     todo_box[id].classList.toggle("is-done");
 }
+
+function searchToDo(value){
+    let todo='';
+    for(let i=0; todo_data.length;i++){
+        if(todo_data[i].title.includes(value) || todo_data[i].description.includes(value)){
+            todo=`
+            <div class="todo-box">
+            <div class="todo-box-left">
+                <div class="todo-top">
+                    <h1 id="title">${todo_data[i].title}</h1>
+                    <h1 id="points">${todo_data[i].points} &#9733</h1>
+                </div>
+                <div class="description">
+                    <p id="description-para">${todo_data[i].description}</p>
+                </div>
+            </div>
+            <div class="todo-box-right">
+                <div class="done bg" id="done" onclick="isDone(${i})"><i class="fa-solid fa-check"></i></div>
+                <div class="edit bg" id="edit" onclick="editToDo(${i})"><i class="fa-solid fa-pen"></i></div>
+                <div class="delete bg" id="delete" onclick="deleteToDo(${i})" ><i class="fa-solid fa-trash"></i></div>
+                <div class="created-at" id="created-at">Created at ${todo_data[i].created_at}</div>
+            </div>
+        </div>
+            `
+        }
+        todo_list_container.innerHTML+=todo;
+    }
+
+}

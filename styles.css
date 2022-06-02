@@ -63,7 +63,10 @@
     color: #F2C261;
     margin-top: 20px;
 }
-
+.search-btn{
+    align-self: flex-end;
+    margin-right: 60px;
+}
 /* To do box */
 .todo-box {
     margin-top: 30px;
