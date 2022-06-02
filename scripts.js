@@ -102,7 +102,7 @@ function displayTodos() {
             <div class="done bg" id="done" onclick="isDone(${i})"><i class="fa-solid fa-check"></i></div>
             <div class="edit bg" id="edit" onclick="editToDo(${i})"><i class="fa-solid fa-pen"></i></div>
             <div class="delete bg" id="delete" onclick="deleteToDo(${i})" ><i class="fa-solid fa-trash"></i></div>
-            <div class="created-at time" id="created-at">${todo_data[i].created_at}</div>
+            <div class="created-at" id="created-at">Created at ${todo_data[i].created_at}</div>
         </div>
     </div>
         `;
